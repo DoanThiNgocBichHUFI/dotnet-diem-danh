@@ -86,6 +86,7 @@ namespace Diem_Danh_SV
             }
         }
 
+        
         void load_grid()
         {
             // Hoặc bạn có thể đặt mục được chọn bằng cách sử dụng SelectedItem
@@ -139,19 +140,7 @@ namespace Diem_Danh_SV
                 MessageBox.Show(ex.Message);
             }
         }
-
-
-        //void load_cbo()
-        //{
-        //    DataSet ds = new DataSet();
-        //    string strselect = "select distinct Ngay from DIEMDANH";
-        //    SqlDataAdapter da = new SqlDataAdapter(strselect, cn);
-        //    da.Fill(ds, "DIEMDANH");
-        //    cbo_ngay.DataSource = ds.Tables[0];
-        //    cbo_ngay.DisplayMember = "Ngay";
-        //    //cbo_ngay.ValueMember = "MaSV";
-        //}
-
+        
         void load_cbo()
         {
             string constr = @"Data Source=DESKTOP-0MNS8CK\SQLEXPRESS;Initial Catalog=qlddanh28ll10;Integrated Security=True"; // Thay đổi thông tin kết nối phù hợp với cơ sở dữ liệu của bạn
@@ -188,8 +177,56 @@ namespace Diem_Danh_SV
                 cbo_ngay.SelectedIndex = 1;
             }
         }
+        //void load_cbo()
+        //{
+        //    DataSet ds = new DataSet();
+        //    string strselect = "select distinct Ngay from DIEMDANH";
+        //    SqlDataAdapter da = new SqlDataAdapter(strselect, cn);
+        //    da.Fill(ds, "DIEMDANH");
+        //    cbo_ngay.DataSource = ds.Tables[0];
+        //    cbo_ngay.DisplayMember = "Ngay";
+        //    //cbo_ngay.ValueMember = "MaSV";
+        //}
+        
+        /*
+            void load_cbo()
+        {
+            string constr = @"Data Source=DESKTOP-0MNS8CK\SQLEXPRESS;Initial Catalog=qlddanh28ll10;Integrated Security=True"; // Thay đổi thông tin kết nối phù hợp với cơ sở dữ liệu của bạn
 
+            using (SqlConnection connection = new SqlConnection(constr))
+            {
+                connection.Open();
 
+                string query = "SELECT distinct Ngay FROM DIEMDANH";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Chuyển đổi Date sang DateTime
+                            DateTime dateTime = Convert.ToDateTime(reader["Ngay"]);
+
+                            // Thêm vào ComboBox
+                            cbo_ngay.Items.Add(dateTime);
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+
+            // Đặt mục được chọn trong ComboBox
+            // Ở đây, tôi giả định rằng bạn muốn chọn mục đầu tiên trong danh sách.
+            // Bạn có thể thay đổi giá trị này để chọn một mục khác.
+            if (cbo_ngay.Items.Count > 0)
+            {
+                cbo_ngay.SelectedIndex = 1;
+            }
+        }
+        */
+        
         private void label8_Click(object sender, EventArgs e)
         {
 
